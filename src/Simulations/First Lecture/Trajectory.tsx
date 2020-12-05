@@ -1,13 +1,18 @@
-import { Vector } from "p5";
-import { Mover } from "./Mover"
+import { Mover } from "../../Mover"
+import { displayVec } from "../../displayVec";
 
+/* export const collidingSem = new EightBitSprite("Bird");
+collidingSem.handler()
+
+export const collidingSem_1 = new EightBitSprite_1("Bird");
+collidingSem_1.handler() */
 export const trajectory_handler = (p: any) => {
 
     // Native p5 functions work as they would normally but prefixed with 
     // a p5 object "p"
 
     // Whether or not the simulation has started or not
-    let start = false
+    let start = false;
 
     // Canvas dimensions
     const width = 640;
@@ -24,16 +29,24 @@ export const trajectory_handler = (p: any) => {
     const dt = 0.07;
 
     // Data
-    let data = new Array();
+    let data = Array<any>();
 
     // Determines where you are in the data
     let counter = 0;
 
+    let component = true;
+
+    // p.setup = () => {
+    //     p.createCanvas(width, height)
+    //     p.preCalculate()
+    //     p.reset();
+    //     p.frameRate(60)
+    // }
+
     p.setup = () => {
         p.createCanvas(width, height)
+        p.reset()
         p.preCalculate()
-        p.reset();
-        p.frameRate(60)
     }
 
     p.draw = () => {
@@ -44,11 +57,31 @@ export const trajectory_handler = (p: any) => {
         }
     }
 
-    p.display = () => {
+    const display = () => {
         if (counter < data.length) {
             p.background(127);
-            console.log("counter!: " + counter);
             mover.display(data[counter][0].x, data[counter][0].y);
+            p.vecDisplay(counter)
+        }
+    }
+
+    p.vecDisplay = (counter: number) => {
+        if (component) {
+            let vx = p.createVector(data[counter][1].x, 0)
+            let vy = p.createVector(0, data[counter][1].y)
+            // Acceleration
+            displayVec(p, data[counter][0], data[counter][2], 4, 'blue');
+            // Velocity
+            displayVec(p, data[counter][0], vx, 1, 'white');
+            // Velocity
+            displayVec(p, data[counter][0], vy, 1, 'white');
+        }
+
+        else {
+            // Velocity
+            displayVec(p, data[counter][0], data[counter][1], 2, 'white');
+            // Acceleration
+            displayVec(p, data[counter][0], data[counter][2], 2, 'blue');
         }
     }
 
@@ -57,10 +90,12 @@ export const trajectory_handler = (p: any) => {
     p.start = () => {
         start = true;
     }
+    
 
     p.pause = () => {
         start = false;
     }
+
     // Restart all the Mover objects randomly
     p.reset = () => {
         start = false;

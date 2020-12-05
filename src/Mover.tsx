@@ -21,9 +21,12 @@ export class Mover {
     }
 
     display(x_pos: Number, y_pos: Number) {
+        this.p.push()
         this.p.stroke(0);
+        this.p.strokeWeight(1);
         this.p.fill(255, 127);
         this.p.ellipse(x_pos, y_pos, this.size, this.size);
+        this.p.pop();
     };
 
     calculate_Force(force: Vector) {

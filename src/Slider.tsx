@@ -1,14 +1,13 @@
 import React from 'react'
 import { Form } from 'react-bootstrap';
 import RangeSlider from 'react-bootstrap-range-slider';
-import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 interface ISlider{
   text: String;
   min?: number;
   max?: number;
   initVal: number;
-  changeHandler: (value: number, max: number | undefined) => void;
+  changeHandler: (value: number, max: number | undefined, display?: boolean) => number;
 }
 
 export const Slider:React.FC<ISlider> = (props) => {
@@ -17,13 +16,13 @@ export const Slider:React.FC<ISlider> = (props) => {
 
     const changeHandler = (element) => {
         setValue(element.target.valueAsNumber);
-        props.changeHandler(value, props.max);
+        props.changeHandler(element.target.valueAsNumber, props.max)
     }
   
     return (
       <Form>
         <Form.Group>
-          <Form.Label>
+          <Form.Label style={{fontWeight: "bold", marginBottom: 0}}>
              {props.text}
           </Form.Label>
           <RangeSlider
@@ -31,6 +30,12 @@ export const Slider:React.FC<ISlider> = (props) => {
             max={props.max}
             value={value}
             onChange={(element) => {changeHandler(element)}}
+            /* tooltipLabel={(value:number) => {
+              let time: number = props.changeHandler(value, props.max, false)
+              return time.toFixed(2)
+            }} */
+            tooltipStyle={{marginTop: 0, paddingTop: 0}}
+            size="sm"
           />
         </Form.Group>
       </Form>
