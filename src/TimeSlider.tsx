@@ -7,17 +7,16 @@ interface ISlider{
   min?: number;
   max?: number;
   initVal: number;
-  step: number;
-  changeHandler: (value: number) => void;
+  changeHandler: (value: number, max: number | undefined, display?: boolean) => number;
 }
 
-export const Slider:React.FC<ISlider> = (props) => {
+export const TimeSlider:React.FC<ISlider> = (props) => {
 
     const [value, setValue] = React.useState(props.initVal);
 
     const changeHandler = (element) => {
         setValue(element.target.valueAsNumber);
-        props.changeHandler(element.target.valueAsNumber)
+        props.changeHandler(element.target.valueAsNumber, props.max)
     }
   
     return (
@@ -30,7 +29,6 @@ export const Slider:React.FC<ISlider> = (props) => {
             min={props.min}
             max={props.max}
             value={value}
-            step={props.step}
             onChange={(element) => {changeHandler(element)}}
             /* tooltipLabel={(value:number) => {
               let time: number = props.changeHandler(value, props.max, false)

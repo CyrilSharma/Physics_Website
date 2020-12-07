@@ -15,7 +15,7 @@ export abstract class Simulation {
     world: Matter.World;
     object_array?: any
     data = new dataContainer()
-    abstract toggles: object;
+    toggles: object;
     p: any;
 
     constructor(h: number) {
@@ -26,12 +26,15 @@ export abstract class Simulation {
         // Filler values
         this.height = h;
         this.width = 0;
+        this.toggles = {}
 
         this.engine = Engine.create();
         this.world = this.engine.world;
     }
 
     abstract setup = () => {}
+
+    // abstract changeInit = 
 
     abstract store = (iterations) => {}
 
@@ -41,7 +44,7 @@ export abstract class Simulation {
 
     abstract vecDisplay = (counter) => {}
 
-    abstract computeAccl = () => {}
+    abstract recompute = () => {}
 
     postProcess = () => {}
 
@@ -50,6 +53,7 @@ export abstract class Simulation {
     reset = () => {
         Engine.clear(this.engine);
         World.clear(this.engine.world, false);
+        this.setup()
         if (this.object_array !== undefined) {
             World.add(this.world, this.object_array);
         }
@@ -76,6 +80,7 @@ export abstract class Simulation {
     precalculate = () => {
         var stopped = false;
         var iteration = 0;
+        this.data.reset()
 
         while (!stopped) {
             this.store(iteration)
@@ -85,8 +90,9 @@ export abstract class Simulation {
             iteration += 1
         }
 
-        this.computeAccl()
+        this.recompute()
         this.reset()
+        this.postProcess()
     }
 
     whenRunning = () => {
@@ -100,8 +106,6 @@ export abstract class Simulation {
             this.setup()
             this.reset()
             this.precalculate()
-            this.postProcess()
-            this.reset()
         }
     
         p.draw = () => {

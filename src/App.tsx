@@ -1,35 +1,41 @@
 import * as React from 'react';
 import './App.css'
-import { SemicircleSim } from './Simulations/First Lecture/Semicircle';
-import { Col, Container, Row } from 'react-bootstrap';
-import Interactable from './Interactable'
-import SemicircleGUI from './Simulations/First Lecture/SemicircleGUI';
-
-
+import Drawer from './Drawer';
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import SemicirclePage from './Pages/Forces Lecture/SemicirclePage';
+import TrajectoryPage from './Pages/Forces Lecture/TrajectoryPage';
+import MConservationPage from './Pages/Momentum Lecture/MConservationPage'
 // Alternate solution:
 // As soon as the component is mounted get the references??
 // At a fundamental level, I need some way to retrieve the P5 object from the simulation object.
 // To create the P5 object, I need the reference to its container, which is housed in the simulation object.
 // The reference to the objects container is only known when the object has already been rendered.
-// Hence, I need a way of getting the P5 object out of the sketch on
-
+// Hence, I need a way of getting the P5 object out of the sketch on 
 class App extends React.Component {
-
-  private simulation = new SemicircleSim(600);
 
   render() {
     return (
+    <>
+      <BrowserRouter>
+      <Drawer></Drawer>
       <div className="App">
-        <Container>
-          <Row>
-            <Col>
-              <Interactable simulation={this.simulation}>
-                <SemicircleGUI simulation={this.simulation}></SemicircleGUI>
-              </Interactable>
-            </Col>
-          </Row>
-        </Container>
+        <Switch>
+          <Route exact path="/">
+            <SemicirclePage></SemicirclePage>
+          </Route>
+          <Route path="/Semicircle">
+            <SemicirclePage></SemicirclePage>
+          </Route>
+          <Route path="/Trajectory">
+            <TrajectoryPage></TrajectoryPage>
+          </Route>
+          <Route path="/Two Blocks">
+            <MConservationPage></MConservationPage>
+          </Route>
+        </Switch>
       </div>
+      </BrowserRouter>
+    </>
     );
   }
 }

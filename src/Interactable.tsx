@@ -28,17 +28,18 @@ export default class Interactable extends React.Component<IProps, IState> {
     }
 
     /* resizeHandler = () => {
-        this.setState({
-            height: window.innerHeight,
-            width: window.innerWidth
-        })
+        height = window.innerHeight,
+        width = window.innerWidth
+        }
     } */
 
     componentDidMount() {
         //We create a new p5 object on component mount, feed it
-        console.log(this.myRef.current)
         this.props.simulation.width = this.myRef.current.offsetWidth
         this.myP5 = new p5(this.props.simulation.simulation_instance, this.myRef.current)
+        console.log(this.myRef.current)
+        /* const children = this.myRef.current.children
+        console.log(children[0]) */
     }
 
     public render() {

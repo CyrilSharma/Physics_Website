@@ -23,7 +23,7 @@ export const Checkbox:React.FC<ICheckbox> = (props) => {
             checked = {value}
             value = "1"
             onChange={(element) => {setChecked(element)}}
-            style={{fontWeight: "bold"}}
+            style={{fontWeight: "bold", color: "lightgray"}}
             >
             {'  '}{props.text}
         </ToggleButton>

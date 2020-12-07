@@ -19,8 +19,6 @@ export class SemicircleSim extends Simulation {
     radius2 = 200;
     circle?: any; 
     circle1?: any; 
-    c1?: Color;
-    c2?: Color;
     composite?: any;
     constraint?: any;
     toggles: object;
@@ -39,14 +37,11 @@ export class SemicircleSim extends Simulation {
     }
 
     setup = () => {
-        this.c1 = this.p.color('rgb(0,50,150)')
-        this.c2 = this.p.color('rgb(0,250,250)')
         let c1_options = {friction: 0, frictionAir: 0, mass: 1};
         let c2_options = {friction: 0, frictionAir: 0, isStatic: true}
         this.circle = Bodies.polygon(this.width/2, this.height - this.radius2 - this.radius1, 50, this.radius1, c1_options);
         this.circle1 = Bodies.polygon(this.width/2, this.height, 50, this.radius2, c2_options);
         this.composite = Composite.create();
-        this.constraint = undefined;
         this.world.gravity.y = 0.588;
         let options = {bodyA: this.circle, bodyB: this.circle1, stiffness: 1};
         this.constraint = Constraint.create(options)
@@ -58,9 +53,9 @@ export class SemicircleSim extends Simulation {
     display = () => {
         if (this.counter < this.data.length) {
             this.p.background(50);
-            this.p.fill(this.c2)
+            this.p.fill(this.p.color('rgb(255,240,240)'))
             this.p.circle(this.data.position[this.counter].x, this.data.position[this.counter].y, 2 * this.radius1)
-            this.p.fill(this.c1)
+            this.p.fill(this.p.color('rgb(63,224,208)'))
             this.p.circle(this.circle1.position?.x, this.circle1.position?.y, 2*this.radius2)
             this.vecDisplay(this.counter)
         }
@@ -78,7 +73,7 @@ export class SemicircleSim extends Simulation {
         let n = Vector.sub(a_r, g_r)
 
         if (this.toggles['velocity']) {
-            displayVec(this.p, this.data.position[c], this.data.velocity[c], 6, 'blue')
+            displayVec(this.p, this.data.position[c], this.data.velocity[c], 6, 'rgb(115,194,251)')
         }
 
         if (this.toggles['normal_f']) {
@@ -86,7 +81,7 @@ export class SemicircleSim extends Simulation {
         }
 
         if (this.toggles['gravity']) {
-            displayVec(this.p, this.data.position[c], g, 6, 'green');
+            displayVec(this.p, this.data.position[c], g, 6, 'rgb(0,180,50)');
         }
             //displayVec(this.p, this.data[c][1], g, 6, 'black');
             // displayVec(this.p, this.circle1.position, r, 1, 'red');
@@ -103,7 +98,7 @@ export class SemicircleSim extends Simulation {
         }
     }
 
-    computeAccl = () => {
+     recompute = () => {
         var velocity = clone(this.data['velocity'])
         var acceleration = func.derivative(velocity, this.timestep)
         this.data['acceleration'] = acceleration;
