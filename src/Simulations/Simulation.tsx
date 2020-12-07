@@ -85,7 +85,7 @@ export abstract class Simulation {
         while (!stopped) {
             this.store(iteration)
             stopped = this.stopCondition()
-            Engine.update(this.engine)
+            Engine.update(this.engine, this.timestep)
             this.postUpdate(iteration)
             iteration += 1
         }

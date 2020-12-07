@@ -27,8 +27,8 @@ export default class MConservationGUI extends GUI {
                 <Row className="justify-content-md-center pt-3">
                     <Col  xs lg="3">
                         <TimeSlider text="Time" initVal={0} max={100} changeHandler={this.timeSlider} ></TimeSlider>
-                        <Slider text="Mass for Block 1" step={0.05} initVal={0.05} min={0.05} max={0.50} changeHandler={this.mass1Slider} ></Slider>
-                        <Slider text="Mass for Block 2" step={0.05} initVal={0.05} min={0.05} max={0.50} changeHandler={this.mass2Slider} ></Slider>
+                        <Slider text="Mass for Block 1" step={0.05} initVal={0.05} min={0.05} max={0.30} changeHandler={this.mass1Slider} ></Slider>
+                        <Slider text="Mass for Block 2" step={0.05} initVal={0.05} min={0.05} max={0.30} changeHandler={this.mass2Slider} ></Slider>
                         <Button style={{marginBottom: 20}} variant="dark" onClick={this.start}> Start </Button>&nbsp;
                     </Col>
                     <Col xs lg="3">

@@ -32,6 +32,7 @@ export default class MConservationSim extends Simulation {
         this.rectangle1 = Bodies.rectangle(this.width/4, this.height - 5 - this.side_l / 2, this.side_l, this.side_l, options_b1);
         this.rectangle2 = Bodies.rectangle(2 * this.width/4, this.height - 5 - this.side_l / 2, this.side_l, this.side_l, options_b2);
         this.ground = Bodies.rectangle(this.width/2, this.height, this.width, 10, options_g);
+        this.timestep = 1/100
         // this.world.gravity.y = 0.588;
         Body.setVelocity(this.rectangle1, Vector.create(5, 0))
         Body.setVelocity(this.rectangle2, Vector.create(0, 0))
