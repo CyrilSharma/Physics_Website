@@ -25,6 +25,7 @@ export default class SemicircleGUI extends GUI {
                     <Col xs lg="3">
                         <Checkbox text="Gravity: Radial Component" checked={false} changeHandler={this.simulation.toggle('gravity_r')}></Checkbox>
                         <Checkbox text="Gravity: Tangential Component" checked={false} changeHandler={this.simulation.toggle('gravity_t')}></Checkbox>
+                        <Checkbox text="Radial Acceleration" checked={false} changeHandler={this.simulation.toggle('acc_r')}></Checkbox>
                     </Col>
                 </Row>
             </Container>

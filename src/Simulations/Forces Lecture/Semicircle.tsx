@@ -68,13 +68,10 @@ export class SemicircleSim extends Simulation {
         let g = Vector.create(0, 9.8)
         let g_r  = Vector.mult(r_n, Vector.dot(r_n, g))
         let g_t = Vector.mult(v_n, Vector.dot(v_n, this.data.acceleration[c]))
+        console.log(this.data.acceleration[c])
         let a_r = Vector.mult(r_n, Vector.dot(r_n, this.data.acceleration[c]))
         let a_c = Vector.mult(r_n, -(Vector.magnitudeSquared(this.data.velocity[c]) / 3.7))
         let n = Vector.sub(a_r, g_r)
-
-        if (this.toggles['velocity']) {
-            displayVec(this.p, this.data.position[c], this.data.velocity[c], 6, 'rgb(115,194,251)')
-        }
 
         if (this.toggles['normal_f']) {
             displayVec(this.p, this.data.position[c], n, 6, 'orange')
@@ -83,8 +80,7 @@ export class SemicircleSim extends Simulation {
         if (this.toggles['gravity']) {
             displayVec(this.p, this.data.position[c], g, 6, 'rgb(0,180,50)');
         }
-            //displayVec(this.p, this.data[c][1], g, 6, 'black');
-            // displayVec(this.p, this.circle1.position, r, 1, 'red');
+        
         if (this.toggles['gravity_r']) {
             displayVec(this.p, this.data.position[c], g_r, 6, 'red');
         }
@@ -93,14 +89,22 @@ export class SemicircleSim extends Simulation {
             displayVec(this.p, this.data.position[c], g_t, 6, 'yellow');
         }
 
+        if (this.toggles['velocity']) {
+            displayVec(this.p, this.data.position[c], this.data.velocity[c], 6, 'rgb(115,194,251)')
+        }
+
         if (this.toggles['acc_c']) {
             displayVec(this.p, this.data.position[c], a_c, 6, 'purple');
+        }
+
+        if (this.toggles['acc_r']) {
+            displayVec(this.p, this.data.position[c], a_r, 6, 'rgb(255,215,0)');
         }
     }
 
      recompute = () => {
         var velocity = clone(this.data['velocity'])
-        var acceleration = func.derivative(velocity, this.timestep)
+        var acceleration = func.derivative(velocity, (this.timestep / 1000))
         this.data['acceleration'] = acceleration;
     }
 
