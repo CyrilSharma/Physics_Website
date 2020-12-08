@@ -46,7 +46,7 @@ export default class MConservationSim extends Simulation {
             displayRect(this.p, this.data.position1[this.counter].x, this.data.position1[this.counter].y, this.side_l, this.side_l, 0)
             this.p.fill(this.p.color('rgb(0,250,80)'))
             displayRect(this.p, this.data.position2[this.counter].x, this.data.position2[this.counter].y, this.side_l, this.side_l, 0)
-            this.p.fill(this.p.color('rgb(50,50,100)'))
+            this.p.fill(this.p.color('rgb(100,100,100)'))
             displayRect(this.p, this.ground.position.x, this.ground.position.y, this.width, 10, 0)
             this.vecDisplay(this.counter)
         }
@@ -56,11 +56,11 @@ export default class MConservationSim extends Simulation {
         let scale = 10
 
         if (this.toggles['velocity2']) {
-            displayVec(this.p, this.data.position2[c], this.data.velocity2[c], 2 * scale, 'white')
+            displayVec(this.p, this.data.position2[c], this.data.velocity2[c], scale, 'white')
         }
 
         if (this.toggles['velocity1']) {
-            displayVec(this.p, this.data.position1[c], this.data.velocity1[c], 2 * scale, 'rgb(191,0,255)');
+            displayVec(this.p, this.data.position1[c], this.data.velocity1[c], scale, 'rgb(191,0,255)');
         }
 
         if (this.toggles['force1']) {

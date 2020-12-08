@@ -30,6 +30,7 @@ export default class MConservationGUI extends GUI {
                         <Slider text="Mass for Block 1" step={0.05} initVal={0.05} min={0.05} max={0.30} changeHandler={this.mass1Slider} ></Slider>
                         <Slider text="Mass for Block 2" step={0.05} initVal={0.05} min={0.05} max={0.30} changeHandler={this.mass2Slider} ></Slider>
                         <Button style={{marginBottom: 20}} variant="dark" onClick={this.start}> Start </Button>&nbsp;
+                        <Button style={{marginBottom: 20}} variant="dark" onClick={this.reset}> Reset </Button>&nbsp;
                     </Col>
                     <Col xs lg="3">
                         <Checkbox text="Left Block's Velocity" checked={false} changeHandler={this.simulation.toggle('velocity1')}></Checkbox>

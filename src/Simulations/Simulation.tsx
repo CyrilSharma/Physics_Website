@@ -10,7 +10,7 @@ export abstract class Simulation {
     height: number;
     width: number;
     paused: boolean;
-    timestep = 1 / 60;
+    timestep = 16.6;
     engine: Matter.Engine;
     world: Matter.World;
     object_array?: any
@@ -103,7 +103,6 @@ export abstract class Simulation {
         this.p = p;
         p.setup = () => {
             p.createCanvas(this.width, this.height)
-            this.setup()
             this.reset()
             this.precalculate()
         }

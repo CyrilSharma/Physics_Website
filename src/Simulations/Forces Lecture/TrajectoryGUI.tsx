@@ -14,6 +14,7 @@ export default class TrajectoryGUI extends GUI {
                     <Col  xs lg="3">
                         <TimeSlider text="Time" initVal={0} max={100} changeHandler={this.timeSlider} ></TimeSlider>
                         <Button style={{marginBottom: 20}} variant="dark" onClick={this.start}> Start </Button>&nbsp;
+                        <Button style={{marginBottom: 20}} variant="dark" onClick={this.reset}> Reset </Button>&nbsp;
                     </Col>
                     <Col xs lg="3">
                         <Checkbox text="Velocity" checked={false} changeHandler={this.simulation.toggle('velocity')}></Checkbox> 

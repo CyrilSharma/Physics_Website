@@ -91,7 +91,7 @@ export default function PersistentDrawerLeft() {
     setOpen(false);
   };
 
-  const nav_texts = ['Semicircle', 'Trajectory', 'Two Blocks', 'Drafts']
+  const nav_texts = ['Semicircle', 'Trajectory', 'Two Blocks']
 
   return (
     <div className={classes.root}>
