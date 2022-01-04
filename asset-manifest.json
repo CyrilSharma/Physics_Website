@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Semicircle/static/css/main.a3718f0b.chunk.css",
-    "main.js": "/Semicircle/static/js/main.eecdec77.chunk.js",
-    "main.js.map": "/Semicircle/static/js/main.eecdec77.chunk.js.map",
-    "runtime-main.js": "/Semicircle/static/js/runtime-main.5343b37f.js",
-    "runtime-main.js.map": "/Semicircle/static/js/runtime-main.5343b37f.js.map",
-    "static/css/2.1d632f7f.chunk.css": "/Semicircle/static/css/2.1d632f7f.chunk.css",
-    "static/js/2.8b307baf.chunk.js": "/Semicircle/static/js/2.8b307baf.chunk.js",
-    "static/js/2.8b307baf.chunk.js.map": "/Semicircle/static/js/2.8b307baf.chunk.js.map",
-    "static/js/3.cc9dd037.chunk.js": "/Semicircle/static/js/3.cc9dd037.chunk.js",
-    "static/js/3.cc9dd037.chunk.js.map": "/Semicircle/static/js/3.cc9dd037.chunk.js.map",
-    "index.html": "/Semicircle/index.html",
-    "static/css/2.1d632f7f.chunk.css.map": "/Semicircle/static/css/2.1d632f7f.chunk.css.map",
-    "static/css/main.a3718f0b.chunk.css.map": "/Semicircle/static/css/main.a3718f0b.chunk.css.map",
-    "static/js/2.8b307baf.chunk.js.LICENSE.txt": "/Semicircle/static/js/2.8b307baf.chunk.js.LICENSE.txt"
+    "main.css": "/Physics_Website/static/css/main.a3718f0b.chunk.css",
+    "main.js": "/Physics_Website/static/js/main.dd1fd0be.chunk.js",
+    "main.js.map": "/Physics_Website/static/js/main.dd1fd0be.chunk.js.map",
+    "runtime-main.js": "/Physics_Website/static/js/runtime-main.951561a0.js",
+    "runtime-main.js.map": "/Physics_Website/static/js/runtime-main.951561a0.js.map",
+    "static/css/2.1d632f7f.chunk.css": "/Physics_Website/static/css/2.1d632f7f.chunk.css",
+    "static/js/2.8b307baf.chunk.js": "/Physics_Website/static/js/2.8b307baf.chunk.js",
+    "static/js/2.8b307baf.chunk.js.map": "/Physics_Website/static/js/2.8b307baf.chunk.js.map",
+    "static/js/3.cc9dd037.chunk.js": "/Physics_Website/static/js/3.cc9dd037.chunk.js",
+    "static/js/3.cc9dd037.chunk.js.map": "/Physics_Website/static/js/3.cc9dd037.chunk.js.map",
+    "index.html": "/Physics_Website/index.html",
+    "static/css/2.1d632f7f.chunk.css.map": "/Physics_Website/static/css/2.1d632f7f.chunk.css.map",
+    "static/css/main.a3718f0b.chunk.css.map": "/Physics_Website/static/css/main.a3718f0b.chunk.css.map",
+    "static/js/2.8b307baf.chunk.js.LICENSE.txt": "/Physics_Website/static/js/2.8b307baf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5343b37f.js",
+    "static/js/runtime-main.951561a0.js",
     "static/css/2.1d632f7f.chunk.css",
     "static/js/2.8b307baf.chunk.js",
     "static/css/main.a3718f0b.chunk.css",
-    "static/js/main.eecdec77.chunk.js"
+    "static/js/main.dd1fd0be.chunk.js"
   ]
 }
